@@ -21,8 +21,29 @@ El sistema permite:
 
 Se implementa **Arquitectura Hexagonal (Ports & Adapters)** para lograr un sistema modular, escalable y mantenible.
 
-<pre> ```txt src/main/java/com/integrador/inventario | ├── config/ # Configuración general (seguridad, CORS, beans) ├── domain/ # Lógica de negocio (Core) │ ├── model/ # Entidades del dominio (Almacen, Material, Movimiento, etc.) │ ├── repository/ # Puertos (interfaces) para acceso a datos │ └── service/ # Casos de uso / Reglas del negocio | ├── persistence/ # Implementación de acceso a datos (adaptadores) │ ├── entity/ # Entidades JPA │ ├── repository/ # Repositorios Spring Data (JpaRepository, CrudRepository) │ ├── mapper/ # MapStruct: Entity ↔ Domain Model │ └── adapter/ # Implementación de puertos del dominio | ├── web/ # Capa de presentación (API REST) │ ├── controller/ # Endpoints HTTP │ ├── dto/ # Entrada y salida de datos (records con @Validation) │ ├── mapper/ # Mappers DTO ↔ Model │ └── exception/ # Manejo de errores personalizados | └── InventarioApplication.java # Clase principal ``` </pre>
-
+```
+src/main/java/com/integrador/inventario
+|
+├── config/               # Configuración general (seguridad, CORS, beans)
+├── domain/               # Lógica de negocio (Core)
+│   ├── model/            # Entidades del dominio (Almacen, Material, Movimiento, etc.)
+│   ├── repository/       # Puertos (interfaces) para acceso a datos
+│   └── service/          # Casos de uso / Reglas del negocio
+|
+├── persistence/          # Implementación de acceso a datos (adaptadores)
+│   ├── entity/           # Entidades JPA
+│   ├── repository/       # Repositorios Spring Data (JpaRepository, CrudRepository)
+│   ├── mapper/           # MapStruct: Entity ↔ Domain Model
+│   └── adapter/          # Implementación de puertos del dominio
+|
+├── web/                  # Capa de presentación (API REST)
+│   ├── controller/       # Endpoints HTTP
+│   ├── dto/              # Entrada y salida de datos (records con @Validation)
+│   ├── mapper/           # Mappers DTO ↔ Model
+│   └── exception/        # Manejo de errores personalizados
+|
+└── InventarioApplication.java   # Clase principal
+```
 
 
 ✅ El dominio no depende de frameworks  
